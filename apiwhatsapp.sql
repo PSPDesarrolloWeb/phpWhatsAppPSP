@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-08-2023 a las 07:22:10
+-- Tiempo de generación: 10-08-2023 a las 07:28:49
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.9
 
@@ -41,7 +41,8 @@ CREATE TABLE `message` (
 --
 
 INSERT INTO `message` (`id_message`, `type_message`, `text_message`, `image_message`, `link_message`, `message_id_sender`) VALUES
-(1, 'text', 'Hola, esta es una prueba de mensaje. A continuación recibirás una imagen y un link al que debes acceder.', 'https://www.bizneo.com/blog/wp-content/uploads/2019/05/pruebas-psicometricas-810x455.jpg', 'https://youtu.be/cOaO14GFCe4?list=RDYbK00KvsNAE', 2);
+(1, 'text', 'Hola, esta es una prueba de mensaje. A continuación recibirás una imagen y un link al que debes acceder.', 'https://www.bizneo.com/blog/wp-content/uploads/2019/05/pruebas-psicometricas-810x455.jpg', 'https://youtu.be/cOaO14GFCe4?list=RDYbK00KvsNAE', 2),
+(2, 'multi', 'Hola, esta es una prueba de campaña publicitaria, en donde recibirás una imagen y un link debajo de este texto.', 'https://foroalfa.org/imagenes/ilustraciones/3869.jpg', 'https://youtu.be/Z441JUsxIa8', 1);
 
 -- --------------------------------------------------------
 
@@ -90,7 +91,7 @@ ALTER TABLE `sender`
 -- AUTO_INCREMENT de la tabla `message`
 --
 ALTER TABLE `message`
-  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `sender`
