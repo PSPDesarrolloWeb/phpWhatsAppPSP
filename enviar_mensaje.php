@@ -1,5 +1,5 @@
 <?php
-// Conexión a la base de datos
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -12,8 +12,8 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-// Obtener el primer emisor
-$sql_emisor = "SELECT * FROM sender WHERE id_emisor = 1";
+
+$sql_emisor = "SELECT * FROM sender WHERE id_emisor = 1"; //Existen datos para cada emisor en la tabla message
 $result_emisor = $conn->query($sql_emisor);
 
 if ($result_emisor->num_rows > 0) {
@@ -24,9 +24,8 @@ if ($result_emisor->num_rows > 0) {
     $dirEmisor = $row_emisor['dir_emisor'];
     $emailEmisor = $row_emisor['email_emisor'];
 
-    // Obtener el primer mensaje asociado al emisor
-    $sql_message = "SELECT * FROM message WHERE message_id_sender = 2"; // Suponiendo que el emisor 1 tenga mensajes asociados en la tabla "message"
-    $result_message = $conn->query($sql_message);
+
+    $sql_message = "SELECT * FROM message WHERE message_id_sender = 2"; //Se debe cambiar el valor de id sender para que el mensaje cambie
 
     if ($result_message->num_rows > 0) {
         $row_message = $result_message->fetch_assoc();
@@ -35,10 +34,10 @@ if ($result_emisor->num_rows > 0) {
         $imageMessage = $row_message['image_message'];
         $linkMessage = $row_message['link_message'];
 
-        // Combinar los valores en un solo mensaje
+
         $message = "Emisor: $nameEmisor | Teléfono: $telEmisor | Dirección: $dirEmisor | Correo: $emailEmisor | Tipo: $typeMessage | Texto: $textMessage | Imagen: $imageMessage | Enlace: $linkMessage";
 
-        // Responder con el mensaje combinado en formato JSON
+
         $response = array("message" => $message);
     } else {
         $response = array("error" => "No se encontraron mensajes asociados al emisor $nameEmisor");
